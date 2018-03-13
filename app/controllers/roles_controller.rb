@@ -1,4 +1,14 @@
 class RolesController < ApplicationController
+  before_action :current_user_must_be_role_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_role_user
+    role = Role.find(params[:id])
+
+    unless current_user == role.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @roles = Role.all
 
