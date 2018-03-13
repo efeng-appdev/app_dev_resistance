@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Mission Vote #<%= @mission_vote.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Vote</dt>
+      <dd><%= @mission_vote.vote %></dd>
+
+      <dt>User</dt>
+      <dd><%= @mission_vote.user_id %></dd>
+
+      <dt>Mission</dt>
+      <dd><%= @mission_vote.mission_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/mission_votes" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/mission_votes/<%= @mission_vote.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_mission_vote/<%= @mission_vote.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

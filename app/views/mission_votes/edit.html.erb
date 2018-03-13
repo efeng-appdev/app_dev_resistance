@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @mission_vote.errors.any? %>
+  <% @mission_vote.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Mission Vote #<%= @mission_vote.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_mission_vote/<%= @mission_vote.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for vote -->
+      <div class="form-group">
+        <label for="vote" class="control-label">
+          Vote
+        </label>
+
+        <input type="text" id="vote" name="vote" placeholder="Vote" class="form-control" value="<%= @mission_vote.vote %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @mission_vote.user_id %>">
+      </div>
+
+      <!-- Label and input for mission_id -->
+      <div class="form-group">
+        <label for="mission_id" class="control-label">
+          Mission
+        </label>
+
+        <input type="text" id="mission_id" name="mission_id" placeholder="Mission" class="form-control" value="<%= @mission_vote.mission_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Mission Vote
+      </button>
+      or
+      <a href="/mission_votes/<%= @mission_vote.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

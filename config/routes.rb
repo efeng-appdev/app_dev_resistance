@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Mission_vote resource:
+  # CREATE
+  get "/mission_votes/new", :controller => "mission_votes", :action => "new"
+  post "/create_mission_vote", :controller => "mission_votes", :action => "create"
+
+  # READ
+  get "/mission_votes", :controller => "mission_votes", :action => "index"
+  get "/mission_votes/:id", :controller => "mission_votes", :action => "show"
+
+  # UPDATE
+  get "/mission_votes/:id/edit", :controller => "mission_votes", :action => "edit"
+  post "/update_mission_vote/:id", :controller => "mission_votes", :action => "update"
+
+  # DELETE
+  get "/delete_mission_vote/:id", :controller => "mission_votes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Role resource:
   # CREATE
   get "/roles/new", :controller => "roles", :action => "new"
