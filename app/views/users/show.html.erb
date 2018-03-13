@@ -23,3 +23,96 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many mission_participants -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Mission Participants
+      </li>
+
+      <% @user.mission_participants.each do |mission_participant| %>
+        <li class="list-group-item">
+          <a href="/mission_participants/<%= mission_participant.id %>">
+            <%= mission_participant.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/mission_participants/<%= mission_participant.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/mission_participants/<%= mission_participant.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_mission_participant/<%= mission_participant.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many mission_votes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Mission Votes
+      </li>
+
+      <% @user.mission_votes.each do |mission_vote| %>
+        <li class="list-group-item">
+          <a href="/mission_votes/<%= mission_vote.id %>">
+            <%= mission_vote.vote %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/mission_votes/<%= mission_vote.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/mission_votes/<%= mission_vote.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_mission_vote/<%= mission_vote.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many missions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Missions
+      </li>
+
+      <% @user.missions.each do |mission| %>
+        <li class="list-group-item">
+          <a href="/missions/<%= mission.id %>">
+            <%= mission.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/missions/<%= mission.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/missions/<%= mission.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_mission/<%= mission.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
