@@ -9,10 +9,22 @@
       <dd><%= @mission_vote.vote %></dd>
 
       <dt>User</dt>
-      <dd><%= @mission_vote.user_id %></dd>
+      <dd>
+        <% if @mission_vote.user.present? %>
+          <a href="/users/<%= @mission_vote.user_id %>">
+            <%= @mission_vote.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Mission</dt>
-      <dd><%= @mission_vote.mission_id %></dd>
+      <dd>
+        <% if @mission_vote.mission.present? %>
+          <a href="/missions/<%= @mission_vote.mission_id %>">
+            <%= @mission_vote.mission.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

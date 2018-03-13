@@ -18,8 +18,20 @@
       <% @mission_votes.each do |mission_vote| %>
       <tr>
         <td><%= mission_vote.vote %></td>
-        <td><%= mission_vote.user.email %></td>
-        <td><%= mission_vote.mission.created_at %></td>
+        <td>
+          <% if mission_vote.user.present? %>
+            <a href="/users/<%= mission_vote.user.id %>">
+              <%= mission_vote.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if mission_vote.mission.present? %>
+            <a href="/missions/<%= mission_vote.mission.id %>">
+              <%= mission_vote.mission.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/mission_votes/<%= mission_vote.id %>" class="btn btn-primary">Show</a>
           <a href="/mission_votes/<%= mission_vote.id %>/edit" class="btn btn-warning">Edit</a>

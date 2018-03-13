@@ -19,7 +19,13 @@
       <tr>
         <td><%= role.role_name %></td>
         <td><%= role.mission_captain %></td>
-        <td><%= role.user.email %></td>
+        <td>
+          <% if role.user.present? %>
+            <a href="/users/<%= role.user.id %>">
+              <%= role.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/roles/<%= role.id %>" class="btn btn-primary">Show</a>
           

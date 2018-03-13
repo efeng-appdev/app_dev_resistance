@@ -12,7 +12,13 @@
       <dd><%= @role.mission_captain %></dd>
 
       <dt>User</dt>
-      <dd><%= @role.user_id %></dd>
+      <dd>
+        <% if @role.user.present? %>
+          <a href="/users/<%= @role.user_id %>">
+            <%= @role.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
