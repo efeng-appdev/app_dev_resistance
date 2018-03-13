@@ -1,4 +1,6 @@
 ActiveAdmin.register Role do
+
+ permit_params :role_name, :mission_captain, :user_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
