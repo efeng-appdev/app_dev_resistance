@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :mission_participants,
+             :dependent => :destroy
+
   has_one    :role,
              :dependent => :destroy
 
