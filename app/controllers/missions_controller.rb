@@ -1,6 +1,7 @@
 class MissionsController < ApplicationController
   def index
-    @missions = Mission.page(params[:page]).per(10)
+    @q = Mission.ransack(params[:q])
+    @missions = @q.result(:distinct => true).includes(:mission_participants, :mission_votes, :users).page(params[:page]).per(10)
 
     render("missions/index.html.erb")
   end

@@ -3,6 +3,137 @@
     Missions
     <a href="/missions/new" class="btn btn-lg btn-success">New Mission</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "missions_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :mission_approved_eq, "Mission approved" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :mission_approved_eq, "1", checked: ((params[:q] && params[:q][:mission_approved_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :mission_approved_eq, "0", checked: ((params[:q] && params[:q][:mission_approved_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :mission_approved_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
+  <%= f.label :total_disapprove, "Total disapprove" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :total_disapprove_gteq, :class => "form-control", :placeholder => "Total disapprove greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :total_disapprove_lteq, :class => "form-control", :placeholder => "Total disapprove less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :total_approve, "Total approve" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :total_approve_gteq, :class => "form-control", :placeholder => "Total approve greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :total_approve_lteq, :class => "form-control", :placeholder => "Total approve less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :outcome_cont, "Outcome contains" %>
+    <%= f.text_field :outcome_cont, :class => "form-control", :placeholder => "Outcome contains" %>
+  </div>
+
+<div class="form-group">
+  <%= f.label :total_fails, "Total fails" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :total_fails_gteq, :class => "form-control", :placeholder => "Total fails greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :total_fails_lteq, :class => "form-control", :placeholder => "Total fails less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :total_passes, "Total passes" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :total_passes_gteq, :class => "form-control", :placeholder => "Total passes greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :total_passes_lteq, :class => "form-control", :placeholder => "Total passes less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+      <%= f.label :mission_votes_vote_cont, "MissionVote vote contains" %>
+      <%= f.text_field :mission_votes_vote_cont, :class => "form-control", :placeholder => "MissionVote vote contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :users_email_cont, "User email contains" %>
+      <%= f.text_field :users_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/missions" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#missions_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">
