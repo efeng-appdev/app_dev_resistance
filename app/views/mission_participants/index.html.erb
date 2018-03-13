@@ -18,7 +18,7 @@
       <% @mission_participants.each do |mission_participant| %>
       <tr>
         <td><%= mission_participant.user.email %></td>
-        <td><%= mission_participant.mission_id %></td>
+        <td><%= mission_participant.mission.created_at %></td>
         <td><%= mission_participant.pass_or_fail %></td>
         <td>
           <a href="/mission_participants/<%= mission_participant.id %>" class="btn btn-primary">Show</a>
