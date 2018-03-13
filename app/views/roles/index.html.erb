@@ -19,7 +19,7 @@
       <tr>
         <td><%= role.role_name %></td>
         <td><%= role.mission_captain %></td>
-        <td><%= role.user_id %></td>
+        <td><%= role.user.email %></td>
         <td>
           <a href="/roles/<%= role.id %>" class="btn btn-primary">Show</a>
           <a href="/roles/<%= role.id %>/edit" class="btn btn-warning">Edit</a>
