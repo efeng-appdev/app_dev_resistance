@@ -1,4 +1,6 @@
 ActiveAdmin.register Mission do
+
+ permit_params :total_passes, :total_fails, :outcome, :total_approve, :total_disapprove, :mission_approved
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
