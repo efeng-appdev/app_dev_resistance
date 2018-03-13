@@ -19,7 +19,7 @@
       <tr>
         <td><%= mission_vote.vote %></td>
         <td><%= mission_vote.user.email %></td>
-        <td><%= mission_vote.mission_id %></td>
+        <td><%= mission_vote.mission.created_at %></td>
         <td>
           <a href="/mission_votes/<%= mission_vote.id %>" class="btn btn-primary">Show</a>
           <a href="/mission_votes/<%= mission_vote.id %>/edit" class="btn btn-warning">Edit</a>
