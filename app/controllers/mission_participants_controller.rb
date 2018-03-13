@@ -1,6 +1,6 @@
 class MissionParticipantsController < ApplicationController
   def index
-    @mission_participants = MissionParticipant.all
+    @mission_participants = MissionParticipant.page(params[:page]).per(10)
 
     render("mission_participants/index.html.erb")
   end

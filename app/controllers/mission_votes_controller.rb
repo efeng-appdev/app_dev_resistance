@@ -1,6 +1,6 @@
 class MissionVotesController < ApplicationController
   def index
-    @mission_votes = MissionVote.all
+    @mission_votes = MissionVote.page(params[:page]).per(10)
 
     render("mission_votes/index.html.erb")
   end

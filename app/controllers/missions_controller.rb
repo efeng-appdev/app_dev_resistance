@@ -1,6 +1,6 @@
 class MissionsController < ApplicationController
   def index
-    @missions = Mission.all
+    @missions = Mission.page(params[:page]).per(10)
 
     render("missions/index.html.erb")
   end
