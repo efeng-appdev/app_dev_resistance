@@ -1,0 +1,81 @@
+<!-- Validation failure messages -->
+<% if @mission.errors.any? %>
+  <% @mission.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Mission</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_mission" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for total_passes -->
+      <div class="form-group">
+        <label for="total_passes" class="control-label">
+          Total passes
+        </label>
+
+        <input type="text" id="total_passes" name="total_passes" placeholder="Total passes" class="form-control" value="<%= @mission.total_passes %>">
+      </div>
+
+      <!-- Label and input for total_fails -->
+      <div class="form-group">
+        <label for="total_fails" class="control-label">
+          Total fails
+        </label>
+
+        <input type="text" id="total_fails" name="total_fails" placeholder="Total fails" class="form-control" value="<%= @mission.total_fails %>">
+      </div>
+
+      <!-- Label and input for outcome -->
+      <div class="form-group">
+        <label for="outcome" class="control-label">
+          Outcome
+        </label>
+
+        <input type="text" id="outcome" name="outcome" placeholder="Outcome" class="form-control" value="<%= @mission.outcome %>">
+      </div>
+
+      <!-- Label and input for total_approve -->
+      <div class="form-group">
+        <label for="total_approve" class="control-label">
+          Total approve
+        </label>
+
+        <input type="text" id="total_approve" name="total_approve" placeholder="Total approve" class="form-control" value="<%= @mission.total_approve %>">
+      </div>
+
+      <!-- Label and input for total_disapprove -->
+      <div class="form-group">
+        <label for="total_disapprove" class="control-label">
+          Total disapprove
+        </label>
+
+        <input type="text" id="total_disapprove" name="total_disapprove" placeholder="Total disapprove" class="form-control" value="<%= @mission.total_disapprove %>">
+      </div>
+
+      <!-- Label and input for mission_approved -->
+      <div class="checkbox">
+        <label for="mission_approved">
+          <input type="checkbox" id="mission_approved" name="mission_approved" value="1" <%= "checked" if @mission.mission_approved %>>
+          Mission approved
+        </label>
+      </div>
+
+      <button class="btn btn-success">
+        Create Mission
+      </button>
+      or
+      <a href="/missions">Cancel</a>
+    </form>
+  </div>
+</div>

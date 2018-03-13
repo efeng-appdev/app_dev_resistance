@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Mission #<%= @mission.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Total passes</dt>
+      <dd><%= @mission.total_passes %></dd>
+
+      <dt>Total fails</dt>
+      <dd><%= @mission.total_fails %></dd>
+
+      <dt>Outcome</dt>
+      <dd><%= @mission.outcome %></dd>
+
+      <dt>Total approve</dt>
+      <dd><%= @mission.total_approve %></dd>
+
+      <dt>Total disapprove</dt>
+      <dd><%= @mission.total_disapprove %></dd>
+
+      <dt>Mission approved</dt>
+      <dd><%= @mission.mission_approved %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/missions" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/missions/<%= @mission.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_mission/<%= @mission.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
