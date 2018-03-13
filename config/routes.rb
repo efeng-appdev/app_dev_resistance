@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "missions#index"
   # Routes for the Mission_participant resource:
   # CREATE
   get "/mission_participants/new", :controller => "mission_participants", :action => "new"
