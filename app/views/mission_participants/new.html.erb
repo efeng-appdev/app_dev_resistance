@@ -33,7 +33,7 @@
           Mission
         </label>
 
-        <input type="text" id="mission_id" name="mission_id" placeholder="Mission" class="form-control" value="<%= @mission_participant.mission_id %>">
+        <%= select_tag(:mission_id, options_from_collection_for_select(Mission.all, :id, :created_at, @mission_participant.mission_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for pass_or_fail -->
