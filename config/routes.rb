@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Mission_participant resource:
+  # CREATE
+  get "/mission_participants/new", :controller => "mission_participants", :action => "new"
+  post "/create_mission_participant", :controller => "mission_participants", :action => "create"
+
+  # READ
+  get "/mission_participants", :controller => "mission_participants", :action => "index"
+  get "/mission_participants/:id", :controller => "mission_participants", :action => "show"
+
+  # UPDATE
+  get "/mission_participants/:id/edit", :controller => "mission_participants", :action => "edit"
+  post "/update_mission_participant/:id", :controller => "mission_participants", :action => "update"
+
+  # DELETE
+  get "/delete_mission_participant/:id", :controller => "mission_participants", :action => "destroy"
+  #------------------------------
+
   # Routes for the Mission_vote resource:
   # CREATE
   get "/mission_votes/new", :controller => "mission_votes", :action => "new"

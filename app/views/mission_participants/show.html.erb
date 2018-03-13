@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Mission Participant #<%= @mission_participant.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @mission_participant.user_id %></dd>
+
+      <dt>Mission</dt>
+      <dd><%= @mission_participant.mission_id %></dd>
+
+      <dt>Pass or fail</dt>
+      <dd><%= @mission_participant.pass_or_fail %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/mission_participants" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/mission_participants/<%= @mission_participant.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_mission_participant/<%= @mission_participant.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

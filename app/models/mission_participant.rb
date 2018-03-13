@@ -1,0 +1,8 @@
+class MissionParticipant < ApplicationRecord
+  # Direct associations
+
+  # Indirect associations
+
+  # Validations
+
+end
