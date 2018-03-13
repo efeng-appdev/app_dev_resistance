@@ -66,6 +66,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_mission_participant" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for mission_id -->
+      <input type="hidden" name="mission_id" value="<%= @mission.id %>">
+
+      <!-- Label and input for pass_or_fail -->
+      <div class="form-group">
+        <label for="pass_or_fail" class="control-label">
+          Pass or fail
+        </label>
+
+        <input type="text" id="pass_or_fail" name="pass_or_fail" placeholder="Pass or fail" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Mission Participant
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -97,6 +129,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_mission_vote" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for vote -->
+      <div class="form-group">
+        <label for="vote" class="control-label">
+          Vote
+        </label>
+
+        <input type="text" id="vote" name="vote" placeholder="Vote" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for mission_id -->
+      <input type="hidden" name="mission_id" value="<%= @mission.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Mission Vote
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

@@ -6,6 +6,8 @@ class MissionsController < ApplicationController
   end
 
   def show
+    @mission_vote = MissionVote.new
+    @mission_participant = MissionParticipant.new
     @mission = Mission.find(params[:id])
 
     render("missions/show.html.erb")
