@@ -9,6 +9,10 @@ class Mission < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :mission_participants,
+             :source => :user
+
   # Validations
 
 end

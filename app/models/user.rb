@@ -12,6 +12,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :missions,
+             :through => :mission_participants,
+             :source => :mission
+
   # Validations
 
   # Include default devise modules. Others available are:
